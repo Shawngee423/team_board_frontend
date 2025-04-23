@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Nature's Beauty | Sunbeam Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF7F50;
+            --secondary-color: #FFF5EB;
+            --accent-color: #FFA07A;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* 文章容器 */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        /* 文章标题 */
+        .article-header {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 作者信息 */
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+        }
+
+        /* 文章内容 */
+        .article-content {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        /* 协作需求模块 */
+        .group-requirements {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .group-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 10px;
+            background: var(--secondary-color);
+        }
+
+        .group-info {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .group-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .group-A { background: #FFD8C5; color: #CC5500; }
+        .group-B { background: #C5E1FF; color: #0066CC; }
+        .group-C { background: #C5FFD8; color: #00CC66; }
+
+        .group-status {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .join-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .join-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.5s ease;
+        }
+
+        /* 评论区域 */
+        .comments-section {
+            margin-top: 3rem;
+            border-top: 2px solid var(--secondary-color);
+            padding-top: 2rem;
+        }
+
+        .comment-form {
+            margin-bottom: 2rem;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+
+        .comment-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* 评论列表 */
+        .comment {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comment-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .comment-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 1rem;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+            
+            .article-content img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <header class="article-header">
+            <h1 class="article-title">Exploring the Beauty of Chicken</h1>
+            <div class="author-info">
+                <img src="avatar-placeholder.jpg" alt="John Doe" class="author-avatar">
+                <div>
+                    <h3>John Doe</h3>
+                    <p>Published on May 15, 2023 ? 8 min read</p>
+                </div>
+            </div>
+        </header>
+
+        <article class="article-content">
+            <img src="nature-image.jpg" alt="Nature" class="article-image">
+            <p>Chicken chicken chicken...</p>
+
+            <!-- 协作需求模块 -->
+            <section class="group-requirements">
+                <h2>Collaboration Needs</h2>
+                <div class="group-list">
+                    <div class="group-item" data-group="A" data-required="3" data-joined="3">
+                        <div class="group-info">
+                            <span class="group-tag group-A">Group A</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span>3/3 Filled</span>
+                        </div>
+                        <button class="join-btn" disabled>Join as A</button>
+                    </div>
+
+                    <div class="group-item" data-group="B" data-required="2" data-joined="1">
+                        <div class="group-info">
+                            <span class="group-tag group-B">Group B</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%"></div>
+                            </div>
+                            <span>1/2 Filled</span>
+                        </div>
+                        <button class="join-btn">Join as B</button>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <section class="comments-section">
+            <h2>Comments (24)</h2>
+            
+            <form class="comment-form">
+                <textarea class="comment-input" placeholder="Write your comment..."></textarea>
+                <button type="submit" class="comment-submit">Post Comment</button>
+            </form>
+
+            <div class="comment">
+                <div class="comment-avatar"></div>
+                <div>
+                    <div class="comment-meta">
+                        <strong>Sarah Smith</strong> ? 2 hours ago
+                    </div>
+                    <p>This Project perfectly captures the essence of Chicken's beauty! ??</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 动态更新状态和按钮
+        function updateGroupStatus() {
+            document.querySelectorAll('.group-item').forEach(item => {
+                const required = parseInt(item.dataset.required);
+                const joined = parseInt(item.dataset.joined);
+                const button = item.querySelector('.join-btn');
+                
+                // 更新进度条
+                const progress = (joined / required) * 100;
+                item.querySelector('.progress-fill').style.width = `${progress}%`;
+                
+                // 更新按钮状态
+                button.disabled = joined >= required;
+                button.textContent = joined >= required ? 
+                    'Group Full' : `Join as ${item.dataset.group}`;
+            });
+        }
+
+        // 初始化状态
+        updateGroupStatus();
+
+        // 加入功能
+        document.querySelectorAll('.join-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const groupItem = this.closest('.group-item');
+                const currentJoined = parseInt(groupItem.dataset.joined);
+                
+                if (currentJoined < parseInt(groupItem.dataset.required)) {
+                    groupItem.dataset.joined = currentJoined + 1;
+                    updateGroupStatus();
+                    
+                    // 这里可以添加实际加入逻辑
+                    console.log(`Joined Group ${groupItem.dataset.group}`);
+                }
+            });
+        });
+
+        // 评论提交功能
+        document.querySelector('.comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const commentInput = this.querySelector('.comment-input');
+            if (commentInput.value.trim()) {
+                // 这里添加评论提交逻辑
+                console.log('New comment:', commentInput.value);
+                commentInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
