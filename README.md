@@ -1,2 +1,9 @@
-# team_board_frontend
-The front end part of TeamBoard project
+# How to init the project
+```
+   pnpm install
+```
+
+# How to run the project
+```
+   pnpm dev
+```
