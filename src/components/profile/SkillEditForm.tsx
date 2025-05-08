@@ -259,8 +259,8 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
       // 通知父组件保存成功
       onSave();
     } catch (error) {
-      console.error("保存技能变更失败:", error);
-      setError(`保存失败: ${error.message || "请重试"}`);
+      console.error("save failed:", error);
+      setError(`保存失败: ${error.message || "please try again"}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -289,7 +289,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
 
   return (
     <div className="bg-white rounded-lg shadow-card p-6">
-      <h2 className="text-xl font-bold mb-4">编辑技能</h2>
+      <h2 className="text-xl font-bold mb-4">edit skills</h2>
 
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
@@ -299,10 +299,10 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
 
       {/* 当前用户技能列表 */}
       <div className="mb-6">
-        <h3 className="font-medium text-gray-700 mb-2">我的技能</h3>
+        <h3 className="font-medium text-gray-700 mb-2">my skills</h3>
 
         {editableUserSkills.length === 0 ? (
-          <p className="text-gray-500 italic">尚未添加技能</p>
+          <p className="text-gray-500 italic">you have no skill</p>
         ) : (
           <div className="space-y-4">
             {editableUserSkills.map((skill) => (
@@ -314,7 +314,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
                     onClick={() => handleRemoveSkill(skill.skill_id)}
                     className="text-red-500 hover:text-red-700"
                   >
-                    删除
+                    delete
                   </button>
                 </div>
                 <div className="flex items-center gap-2">
@@ -343,7 +343,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
 
       {/* 添加新技能 */}
       <div className="mb-6 border-t pt-4">
-        <h3 className="font-medium text-gray-700 mb-2">添加技能</h3>
+        <h3 className="font-medium text-gray-700 mb-2">add skill</h3>
 
         {isAddingNewSkill ? (
           <div className="space-y-3">
@@ -362,7 +362,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                技能等级: {skillLevel}%
+                skill level{skillLevel}%
               </label>
               <input
                 type="range"
@@ -388,7 +388,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
                 onClick={() => setIsAddingNewSkill(false)}
                 className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
               >
-                取消
+                cancel
               </button>
             </div>
           </div>
@@ -396,7 +396,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
           <div className="space-y-3">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                选择技能
+                add skill
               </label>
               <select
                 value={selectedSkillId}
@@ -407,7 +407,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
                 }
                 className="w-full px-3 py-2 border border-gray-300 rounded-md"
               >
-                <option value="">-- 选择技能 --</option>
+                <option value="">-- edit skills --</option>
                 {availableSkills.map((skill) => (
                   <option key={skill.skill_id} value={skill.skill_id}>
                     {skill.skill_name}
@@ -418,7 +418,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                技能等级: {skillLevel}%
+                skill level: {skillLevel}%
               </label>
               <input
                 type="range"
@@ -437,14 +437,14 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
                 disabled={isSubmitting || !selectedSkillId}
                 className="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 disabled:opacity-50"
               >
-                {isSubmitting ? "添加中..." : "添加技能"}
+                {isSubmitting ? "adding..." : "add skill"}
               </button>
               <button
                 type="button"
                 onClick={() => setIsAddingNewSkill(true)}
                 className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
               >
-                创建新技能
+                add new skill
               </button>
             </div>
           </div>
@@ -458,7 +458,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
           onClick={onCancel}
           className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
         >
-          取消
+          cancel
         </button>
         <button
           type="button"
@@ -466,7 +466,7 @@ const SkillEditForm: React.FC<SkillEditFormProps> = ({
           disabled={isSubmitting}
           className="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 disabled:opacity-50"
         >
-          {isSubmitting ? "保存中..." : "保存更改"}
+          {isSubmitting ? "saving..." : "save"}
         </button>
       </div>
     </div>
