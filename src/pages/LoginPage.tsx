@@ -34,8 +34,8 @@ const LoginPage: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-r from-primary-50 to-primary-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="bg-white max-w-md w-full rounded-2xl shadow-lg overflow-hidden">
         <div className="bg-gradient-to-r from-primary-400 to-primary-500 py-8 px-6 text-center text-white">
-          <h1 className="text-2xl font-bold mb-1">欢迎回来</h1>
-          <p className="text-primary-50">登录找到您的项目</p>
+          <h1 className="text-2xl font-bold mb-1">Welcome</h1>
+          <p className="text-primary-50">Login to find your project</p>
         </div>
 
         <form className="py-8 px-6 space-y-6" onSubmit={handleSubmit}>
@@ -56,7 +56,7 @@ const LoginPage: React.FC = () => {
               htmlFor="username"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              用户名
+              Username
             </label>
             <input
               id="username"
@@ -65,7 +65,7 @@ const LoginPage: React.FC = () => {
               onChange={(e) => setUsername(e.target.value)}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"
-              placeholder="请输入用户名"
+              placeholder="Enter your username"
             />
           </div>
 
@@ -74,7 +74,7 @@ const LoginPage: React.FC = () => {
               htmlFor="password"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              密码
+              Password
             </label>
             <input
               id="password"
@@ -100,13 +100,13 @@ const LoginPage: React.FC = () => {
                 htmlFor="remember-me"
                 className="ml-2 block text-sm text-gray-700"
               >
-                记住我
+                remember me
               </label>
             </div>
 
             <div className="text-sm">
               <a href="#" className="text-primary-500 hover:text-primary-600">
-                忘记密码?
+                forget password?
               </a>
             </div>
           </div>
@@ -116,7 +116,7 @@ const LoginPage: React.FC = () => {
               type="submit"
               className="w-full py-3 px-4 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors duration-200"
             >
-              登录
+              Login
             </button>
           </div>
 
@@ -125,17 +125,17 @@ const LoginPage: React.FC = () => {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">或</span>
+              <span className="px-2 bg-white text-gray-500">or</span>
             </div>
           </div>
 
           <div className="text-center text-sm text-gray-600">
-            没有账号?{" "}
+            Don't have an account?{" "}
             <Link
               to="#"
               className="text-primary-500 hover:text-primary-600 font-medium"
             >
-              创建账号
+              create account
             </Link>
           </div>
         </form>

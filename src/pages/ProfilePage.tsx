@@ -66,8 +66,8 @@ const ProfilePage: React.FC = () => {
       setProfile(updatedData);
       setIsEditing(false);
     } catch (error) {
-      console.error("保存个人资料失败:", error);
-      setError("保存失败，请稍后重试");
+      console.error("save failed:", error);
+      setError("save failed, try again later.");
     } finally {
       setLoading(false);
     }
@@ -83,8 +83,8 @@ const ProfilePage: React.FC = () => {
       setProfile(updatedData);
       setIsEditingSkills(false);
     } catch (error) {
-      console.error("获取更新后的技能信息失败:", error);
-      setError("更新技能失败，请稍后重试");
+      console.error("fail to fetch skill data", error);
+      setError("fail to fetch skill data try again later.");
     } finally {
       setLoading(false);
     }
@@ -115,12 +115,12 @@ const ProfilePage: React.FC = () => {
       <Layout>
         <div className="max-w-5xl mx-auto px-4 py-16 text-center">
           <h2 className="text-2xl font-bold text-red-500 mb-4">错误</h2>
-          <p className="mb-8">{error || "加载个人资料失败"}</p>
+          <p className="mb-8">{error || "fail to load profile"}</p>
           <button
             onClick={() => window.location.reload()}
             className="px-6 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
           >
-            重试
+            retry
           </button>
         </div>
       </Layout>
@@ -133,12 +133,12 @@ const ProfilePage: React.FC = () => {
         {!isEditing && !isEditingSkills ? (
           <>
             <div className="flex justify-between items-center mb-4">
-              <h1 className="text-2xl font-bold">个人资料</h1>
+              <h1 className="text-2xl font-bold">profile</h1>
               <button
                 onClick={handleEditClick}
                 className="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
               >
-                编辑资料
+                modify profile
               </button>
             </div>
             <ProfileHeader profile={profile} />
@@ -146,12 +146,12 @@ const ProfilePage: React.FC = () => {
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <h2 className="text-xl font-bold">技能</h2>
+                  <h2 className="text-xl font-bold">skill</h2>
                   <button
                     onClick={handleEditSkillsClick}
                     className="text-sm px-3 py-1 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors"
                   >
-                    编辑技能
+                    modify skill
                   </button>
                 </div>
                 <SkillsList skills={profile.skills} />
@@ -184,7 +184,7 @@ const ProfilePage: React.FC = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                返回个人资料
+                return to profile
               </button>
             </div>
             <ProfileEditForm
@@ -212,7 +212,7 @@ const ProfilePage: React.FC = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                返回个人资料
+                return to profile
               </button>
             </div>
             <SkillEditForm
